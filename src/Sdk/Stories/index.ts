@@ -1,5 +1,6 @@
 export { default } from './Stories';
 export {
+    StoriesQuery,
     // Stories List API
     StoriesListRequest,
     StoriesListResponse,
