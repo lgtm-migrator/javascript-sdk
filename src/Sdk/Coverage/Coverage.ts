@@ -1,6 +1,6 @@
 import { ProgressPromise } from '@prezly/progress-promise';
 
-import { Coverage, SelectionValue } from '../../types';
+import { Coverage, Query, SelectionValue } from '../../types';
 
 import routing from '../routing';
 import DeferredJobsApiClient from '../DeferredJobsApiClient';
@@ -35,7 +35,7 @@ export default class CoverageSdk {
                 include_deleted: includeDeleted ? 'on' : undefined,
                 page,
                 limit: pageSize,
-                query: jsonQuery,
+                query: Query.stringify(jsonQuery),
                 sort: sortOrder,
             },
         });

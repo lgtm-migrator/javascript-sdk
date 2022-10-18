@@ -1,4 +1,4 @@
-import { Newsroom } from '../../types';
+import { Newsroom, Query } from '../../types';
 
 import routing from '../routing';
 import DeferredJobsApiClient from '../DeferredJobsApiClient';
@@ -20,9 +20,12 @@ export default class Newsrooms {
         this.apiClient = apiClient;
     }
 
-    async list({ limit, offset, search, sortOrder }: NewsroomListRequest = {}): Promise<
-        NewsroomListResponse
-    > {
+    async list({
+        limit,
+        offset,
+        search,
+        sortOrder,
+    }: NewsroomListRequest = {}): Promise<NewsroomListResponse> {
         return this.apiClient.get<NewsroomListResponse>(routing.newsroomsUrl, {
             query: {
                 limit,
@@ -42,7 +45,7 @@ export default class Newsrooms {
     }: NewsroomSearchRequest = {}): Promise<NewsroomListResponse> {
         return this.apiClient.get<NewsroomListResponse>(routing.newsroomsUrl, {
             query: {
-                query: jsonQuery,
+                query: Query.stringify(jsonQuery),
                 limit,
                 offset,
                 search,

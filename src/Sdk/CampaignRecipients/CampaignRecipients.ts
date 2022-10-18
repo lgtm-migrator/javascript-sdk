@@ -27,7 +27,7 @@ export default class CampaignRecipients {
             query: {
                 limit: pageSize,
                 page,
-                query: jsonQuery ? JSON.stringify(jsonQuery) : undefined,
+                query: Query.stringify(jsonQuery),
                 sort: sortOrder,
             },
         });

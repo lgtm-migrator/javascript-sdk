@@ -1,6 +1,6 @@
 import { ProgressPromise } from '@prezly/progress-promise';
 
-import { Campaign } from '../../types';
+import { Campaign, Query } from '../../types';
 
 import routing from '../routing';
 import DeferredJobsApiClient from '../DeferredJobsApiClient';
@@ -28,7 +28,7 @@ export default class Campaigns {
             query: {
                 limit: pageSize,
                 page,
-                query: jsonQuery ? JSON.stringify(jsonQuery) : undefined,
+                query: Query.stringify(jsonQuery),
                 sort: sortOrder,
             },
         });

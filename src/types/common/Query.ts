@@ -87,4 +87,11 @@ export namespace Query {
     };
 
     export type QueryObject<F extends Filter = Filter> = F | CombinedQuery<F>;
+
+    export function stringify(query: QueryObject | string | undefined): string | undefined {
+        if (typeof query === 'undefined') {
+            return undefined;
+        }
+        return typeof query === 'string' ? query : JSON.stringify(query);
+    }
 }
