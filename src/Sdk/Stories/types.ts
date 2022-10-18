@@ -54,6 +54,7 @@ export type StoriesQuery = Query<
 
 export type StoriesSearchRequest<Include extends readonly (keyof ExtraStoryFields)[]> = {
     jsonQuery?: StoriesQuery;
+    scopeQuery?: StoriesQuery;
     limit?: number;
     offset?: number;
     sortOrder?: string;
@@ -61,7 +62,7 @@ export type StoriesSearchRequest<Include extends readonly (keyof ExtraStoryField
 };
 export type StoriesListRequest<Include extends readonly (keyof ExtraStoryFields)[]> = Omit<
     StoriesSearchRequest<Include>,
-    'jsonQuery'
+    'jsonQuery' | 'scopeQuery'
 >;
 
 export interface StoriesListResponse<S extends Story = Story> {
