@@ -5,6 +5,7 @@ import {
     Newsroom,
     NewsroomStatus,
     Pagination,
+    Query,
 } from '../../types';
 
 export interface NewsroomListRequest {
@@ -21,7 +22,7 @@ export interface NewsroomSearchRequest extends NewsroomListRequest {
     /**
      * Filter query using Prezly JSON Query Language
      */
-    jsonQuery?: string;
+    jsonQuery?: Query;
 }
 
 export interface NewsroomListResponse {

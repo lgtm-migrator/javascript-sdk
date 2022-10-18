@@ -4,6 +4,7 @@ import {
     ExtraStoryFields,
     NewsroomRef,
     Pagination,
+    Query,
     Story,
     StoryFormatVersion,
     StoryVisibility,
@@ -24,7 +25,7 @@ type Html = string;
 type PrezlyContentFormat = string;
 
 export type StoriesSearchRequest<Include extends readonly (keyof ExtraStoryFields)[]> = {
-    jsonQuery?: string;
+    jsonQuery?: Query;
     limit?: number;
     offset?: number;
     sortOrder?: string;

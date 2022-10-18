@@ -9,6 +9,7 @@ import {
     OEmbedInfo,
     Pagination,
     Story,
+    Query,
 } from '../../types';
 
 export type CoverageScope = { story: Story['id'] } | null;
@@ -59,7 +60,7 @@ export interface CoverageCreateRequest extends CoverageUpdateRequest {}
 
 export interface CoverageSearchOptions {
     includeDeleted?: boolean;
-    jsonQuery?: string;
+    jsonQuery?: Query;
     page?: number;
     pageSize?: number;
     sortOrder?: string;
